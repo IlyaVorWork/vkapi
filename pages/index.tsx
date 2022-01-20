@@ -1,15 +1,16 @@
 import type { NextPage } from "next"
-import Head from "next/head"
 import { useRouter } from "next/router"
-import Script from "next/script"
+import { useEffect } from "react"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
   const router = useRouter()
 
-  VK.init({
-    apiId: 8056179,
-  })
+  useEffect(() => {
+    VK.init({
+      apiId: 8056179,
+    })
+  }, [])
 
   const tryRequest = () => {
     let request = fetch(
