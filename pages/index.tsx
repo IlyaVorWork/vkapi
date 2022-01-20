@@ -23,7 +23,10 @@ const Home: NextPage = () => {
           "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
         v: "5.131",
       },
-      (res) => console.log(res)
+      (res) => {
+        console.log(res)
+        setPhotos(res.response.items)
+      }
     )
   }
 
@@ -39,11 +42,14 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
-        {user ? user.id : null}
-        {user ? user.domain : null}
-        {user ? user.href : null}
         {user ? user.first_name : null}
+        <br />
         {user ? user.last_name : null}
+        <div className={styles.album}>
+          {photos.map((i: any) => (
+            <img src={i.sizes[6].url} className={styles.photo} />
+          ))}
+        </div>
       </div>
     </>
   )
