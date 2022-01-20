@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>()
+  const [photos, setPhotos] = useState<any>()
   const router = useRouter()
 
   useEffect(() => {
@@ -13,11 +14,10 @@ const Home: NextPage = () => {
     })
   }, [])
 
-  const tryRequest = () => {
-    let request = fetch(
-      "https://api.vk.com/method/users.get?user_ids=yareyaredazze&fields=bdate&access_token=e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0&v=5.131"
+  const getPhotos = () => {
+    VK.Api.call("photos.getAlbums", { ownerId: user.id, v: "5.131" }, (res) =>
+      console.log(res)
     )
-    console.log(request)
   }
 
   const logIn = () => {
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
   return (
     <>
       <div className={styles.container}>
-        <button onClick={tryRequest}>Вк апи</button>
+        <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
         {user ? user.id : null}
         {user ? user.domain : null}
