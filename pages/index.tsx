@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
   const logIn = () => {
     router.push(
-      "https://oauth.vk.com/authorize?client_id=8056179&redirect_uri=https://vkapi.vercel.app/callback&scope=12&display=popup"
+      "https://oauth.vk.com/authorize?client_id=8056179&redirect_uri=https://vkapi.vercel.app&scope=12&display=popup"
     )
   }
 
