@@ -25,7 +25,15 @@ const Home: NextPage = () => {
       },
       (res) => {
         console.log(res)
-        setPhotos(res.response.items)
+        let tempPhotos: any = []
+        res.response.items.map((i: any) => {
+          i.sizes.map((el: any) => {
+            if (el.type == "w") {
+              tempPhotos.push({ ...i, sizes: [el] })
+            }
+          })
+        })
+        setPhotos(tempPhotos)
       }
     )
   }
