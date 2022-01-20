@@ -31,7 +31,7 @@ const Home: NextPage = () => {
     VK.Auth.login((status) => {
       console.log(status)
       setUser(status.session.user)
-    }, 2)
+    }, 4)
   }
 
   return (
