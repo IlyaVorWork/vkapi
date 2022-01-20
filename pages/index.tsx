@@ -1,9 +1,15 @@
 import type { NextPage } from "next"
+import Head from "next/head"
 import { useRouter } from "next/router"
+import Script from "next/script"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
   const router = useRouter()
+
+  VK.init({
+    apiId: 8056179,
+  })
 
   const tryRequest = () => {
     let request = fetch(
@@ -13,16 +19,16 @@ const Home: NextPage = () => {
   }
 
   const logIn = () => {
-    router.push(
-      "https://oauth.vk.com/authorize?client_id=8056179&redirect_uri=https://vkapi.vercel.app&scope=12&display=popup"
-    )
+    VK.Auth.login((status) => console.log(status), 1)
   }
 
   return (
-    <div className={styles.container}>
-      <button onClick={tryRequest}>Вк апи</button>
-      <button onClick={logIn}>Войти через вк</button>
-    </div>
+    <>
+      <div className={styles.container}>
+        <button onClick={tryRequest}>Вк апи</button>
+        <button onClick={logIn}>Войти через вк</button>
+      </div>
+    </>
   )
 }
 

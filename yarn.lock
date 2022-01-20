@@ -198,6 +198,11 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/vk-openapi@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@types/vk-openapi/-/vk-openapi-1.6.1.tgz#aaee1a7670103f581693537f70cd8ff1146b6ead"
+  integrity sha512-T5kfaOQCQAttxyV711Y4NUPTxrG3UGlMcIJ+1dL42XGMRd8jv6XYmKiOGDPXTmTPP6EIgPW0bCBns7wEotUmfA==
+
 "@typescript-eslint/parser@^5.0.0":
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.10.0.tgz#8f59e036f5f1cffc178cacbd5ccdd02aeb96c91c"
@@ -1803,6 +1808,11 @@ v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
+
+vk-openapi@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vk-openapi/-/vk-openapi-0.1.2.tgz#b8b7b49b1500c6f4540e874970b9a48295852772"
+  integrity sha1-uLe0mxUAxvRUDodJcLmkgpWFJ3I=
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
