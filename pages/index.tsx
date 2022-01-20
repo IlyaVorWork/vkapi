@@ -1,9 +1,10 @@
 import type { NextPage } from "next"
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
+  const [user, setUser] = useState<any>()
   const router = useRouter()
 
   useEffect(() => {
@@ -20,7 +21,10 @@ const Home: NextPage = () => {
   }
 
   const logIn = () => {
-    VK.Auth.login((status) => console.log(status), 2)
+    VK.Auth.login((status) => {
+      console.log(status)
+      setUser(status.session.user)
+    }, 2)
   }
 
   return (
@@ -28,6 +32,7 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <button onClick={tryRequest}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
+        {user}
       </div>
     </>
   )
