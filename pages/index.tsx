@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   }
 
   const logIn = () => {
-    VK.Auth.login((status) => console.log(status), 1)
+    VK.Auth.login((status) => console.log(status), 2)
   }
 
   return (
