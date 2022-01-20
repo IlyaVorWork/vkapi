@@ -15,8 +15,15 @@ const Home: NextPage = () => {
   }, [])
 
   const getPhotos = () => {
-    VK.Api.call("photos.getAlbums", { ownerId: user.id, v: "5.131" }, (res) =>
-      console.log(res)
+    VK.Api.call(
+      "photos.getAlbums",
+      {
+        owner_id: user.id,
+        access_token:
+          "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
+        v: "5.131",
+      },
+      (res) => console.log(res)
     )
   }
 
