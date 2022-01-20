@@ -46,9 +46,15 @@ const Home: NextPage = () => {
         <br />
         {user ? user.last_name : null}
         <div className={styles.album}>
-          {photos.map((i: any) => (
-            <img src={i.sizes[6].url} className={styles.photo} />
-          ))}
+          {photos
+            ? photos.map((i: any, index: number) => (
+                <img
+                  src={i.sizes[6].url}
+                  className={styles.photo}
+                  key={index}
+                />
+              ))
+            : null}
         </div>
       </div>
     </>
