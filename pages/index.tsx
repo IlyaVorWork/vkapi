@@ -57,7 +57,7 @@ const Home: NextPage = () => {
           {photos
             ? photos.map((i: any, index: number) => (
                 <img
-                  src={i.sizes[6].url}
+                  src={i.sizes[0].url}
                   className={styles.photo}
                   key={index}
                 />
