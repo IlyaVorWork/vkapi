@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => tryRequest}>Вк апи</button>
+      <button onClick={tryRequest}>Вк апи</button>
     </div>
   )
 }
