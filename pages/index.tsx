@@ -32,11 +32,13 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <button onClick={tryRequest}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
-        {user.id}
-        {user.domain}
-        {user.href}
-        {user.first_name}
-        {user.last_name}
+        {user
+          ? (user?.id,
+            user?.domain,
+            user?.href,
+            user?.first_name,
+            user?.last_name)
+          : null}
       </div>
     </>
   )
