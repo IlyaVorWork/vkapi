@@ -60,7 +60,7 @@ const Home: NextPage = () => {
                   src={i.sizes[0].url}
                   className={styles.photo}
                   height={
-                    i.sizes[0].height > 400
+                    i.sizes[0].height > 600
                       ? i.sizes[0].height / 4
                       : i.sizes[0].height
                   }
