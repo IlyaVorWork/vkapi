@@ -39,29 +39,24 @@ const Home: NextPage = () => {
   }
 
   const logIn = () => {
-    let tempStatus: vk.OpenAPI.Auth.LoginStatus
-    new Promise((res, rej) => {
-      VK.Auth.login((status) => {
-        console.log(status)
-        tempStatus = status
-      }, 4)
-    }).then(() => {
-      VK.Api.call(
-        "users.get",
-        {
-          user_ids: tempStatus.session.user.id,
-          fields: "photo_400_orig",
-          access_token:
-            "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
-          v: "5.131",
-        },
-        (res) => {
-          console.log(res)
-          let tempUser = { ...tempStatus.session.user, avatarUrl: res.result }
-        }
-      )
-    })
-
+    VK.Auth.login((status) => {
+      console.log(status)
+      setUser(status.session.user)
+    }, 4)
+    VK.Api.call(
+      "users.get",
+      {
+        user_ids: user.id,
+        fields: "photo_400_orig",
+        access_token:
+          "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
+        v: "5.131",
+      },
+      (res) => {
+        console.log(res)
+        setUser({ ...user, avatar: res.result.photo_400_orig })
+      }
+    )
     /*setUser(status.session.user)
       Cookies.set("user", JSON.stringify(status.session.user), {
         expires: 1 / 12,
