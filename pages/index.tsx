@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         },
         (response) => {
           console.log(response)
-          setUser({ ...user, avatar: response.result.photo_400_orig })
+          setUser({ ...user, avatar: response.response[0].photo_400_orig })
         }
       )
     }
@@ -74,6 +74,10 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
+        {user.avatar ? (
+          <img src={user.avatar} className={styles.avatar} />
+        ) : null}
+        &nbsp;
         {user ? user.first_name : null}
         &nbsp;
         {user ? user.last_name : null}
