@@ -28,10 +28,11 @@ const Home: NextPage = () => {
         let tempPhotos: any = []
         res.response.items.map((i: any) => {
           i.sizes.map((el: any) => {
+            let z = true
             if (el.type == "w") {
               tempPhotos.push({ ...i, sizes: [el] })
-              return
-            } else if (el.type == "z") {
+              z = false
+            } else if (el.type == "z" && z) {
               tempPhotos.push({ ...i, sizes: [el] })
             }
           })
@@ -60,7 +61,7 @@ const Home: NextPage = () => {
         <div className={styles.album}>
           {photos
             ? photos.map((i: any, index: number) => (
-                <Image
+                <img
                   src={i.sizes[0].url}
                   className={styles.photo}
                   height={i.sizes[0].height / 4}
