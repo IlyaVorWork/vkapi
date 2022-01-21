@@ -73,6 +73,7 @@ const Home: NextPage = () => {
     VK.Auth.logout((status) => {
       console.log(status)
       setUser(null)
+      setPhotos(null)
       Cookies.remove("user")
     })
   }
