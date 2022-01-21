@@ -17,20 +17,22 @@ const Home: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    VK.Api.call(
-      "users.get",
-      {
-        user_ids: user.id,
-        fields: "photo_400_orig",
-        access_token:
-          "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
-        v: "5.131",
-      },
-      (response) => {
-        console.log(response)
-        setUser({ ...user, avatar: response.result.photo_400_orig })
-      }
-    )
+    if (user) {
+      VK.Api.call(
+        "users.get",
+        {
+          user_ids: user.id,
+          fields: "photo_400_orig",
+          access_token:
+            "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
+          v: "5.131",
+        },
+        (response) => {
+          console.log(response)
+          setUser({ ...user, avatar: response.result.photo_400_orig })
+        }
+      )
+    }
   }, [user])
 
   const getPhotos = () => {
