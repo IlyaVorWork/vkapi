@@ -74,7 +74,7 @@ const Home: NextPage = () => {
       <div className={styles.container}>
         <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
-        {user.avatar ? (
+        {user?.avatar ? (
           <img src={user.avatar} className={styles.avatar} />
         ) : null}
         &nbsp;
