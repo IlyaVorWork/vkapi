@@ -62,11 +62,11 @@ const Home: NextPage = () => {
                 <img
                   src={i.sizes.find((e: any) => e.type == "r").url}
                   className={styles.photo}
-                  width={i.sizes.find((e: any) => e.type == "r").width}
+                  width={i.sizes.find((e: any) => e.type == "r").width * 0.75}
                   height={
                     i.sizes.find((e: any) => e.type == "r").height < 510
-                      ? i.sizes.find((e: any) => e.type == "r").height
-                      : 510
+                      ? i.sizes.find((e: any) => e.type == "r").height * 0.75
+                      : 510 * 0.75
                   }
                   key={index}
                 />
