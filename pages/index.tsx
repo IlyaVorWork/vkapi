@@ -39,7 +39,7 @@ const Home: NextPage = () => {
     VK.Api.call(
       "photos.getAll",
       {
-        owner_id: user.id,
+        owner_id: "cvetochek_luchistyj",
         access_token:
           "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
         v: "5.131",
