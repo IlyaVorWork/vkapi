@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import type { NextPage } from "next"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import styles from "../styles/Home.module.css"
 
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
           i.sizes.map((el: any) => {
             if (el.type == "w") {
               tempPhotos.push({ ...i, sizes: [el] })
+              return
             } else if (el.type == "z") {
               tempPhotos.push({ ...i, sizes: [el] })
             }
@@ -58,12 +60,10 @@ const Home: NextPage = () => {
         <div className={styles.album}>
           {photos
             ? photos.map((i: any, index: number) => (
-                <img
+                <Image
                   src={i.sizes[0].url}
-                  className={clsx({
-                    [styles.bigPhoto]: i.sizes[0].type == "w",
-                    [styles.lilPhoto]: i.sizes[0].type == "z",
-                  })}
+                  className={styles.photo}
+                  height={i.sizes[0].height / 4}
                   key={index}
                 />
               ))
