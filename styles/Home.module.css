@@ -15,4 +15,6 @@
   align-self: center;
   object-fit: cover;
   object-position: 50% 50%;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
