@@ -6,7 +6,7 @@ var _ = require("lodash")
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>(
-    JSON.parse(Cookies.get("user")!) || undefined
+    Cookies.get("user") ? JSON.parse(Cookies.get("user")!) : undefined
   )
   const [photos, setPhotos] = useState<any>()
 
