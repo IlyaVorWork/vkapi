@@ -10,7 +10,12 @@
   flex-wrap: wrap;
 }
 
-.photo {
+.bigPhoto {
   width: 400px;
+  align-self: center;
+}
+
+.lilPhoto {
+  width: 405px;
   align-self: center;
 }

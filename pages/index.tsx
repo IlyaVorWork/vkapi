@@ -34,6 +34,7 @@ const Home: NextPage = () => {
             }
           })
         })
+        console.log(tempPhotos)
         setPhotos(tempPhotos)
       }
     )
