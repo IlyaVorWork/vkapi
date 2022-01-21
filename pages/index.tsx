@@ -14,7 +14,9 @@ const Home: NextPage = () => {
     VK.init({
       apiId: 8056179,
     })
+  }, [])
 
+  useEffect(() => {
     VK.Api.call(
       "users.get",
       {
@@ -29,7 +31,7 @@ const Home: NextPage = () => {
         setUser({ ...user, avatar: response.result.photo_400_orig })
       }
     )
-  }, [])
+  }, [user])
 
   const getPhotos = () => {
     VK.Api.call(
