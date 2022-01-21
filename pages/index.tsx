@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       console.log(status)
       setUser(status.session.user)
       Cookies.set("user", JSON.stringify(status.session.user), {
-        expires: 7200000,
+        expires: 0.83,
       })
     }, 4)
   }
