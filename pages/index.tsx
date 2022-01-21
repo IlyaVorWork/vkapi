@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         res.response.items.map((i: any) => {
           let tempSizes = i.sizes
           console.log(tempSizes)
-          let sortedArray = _.sortBy(tempSizes, "height", "asc")
+          let sortedArray = _.sortBy(tempSizes, ["height"], ["desc"])
           console.log(sortedArray)
           tempPhotos.push({ ...i, sizes: [sortedArray[0]] })
         })
