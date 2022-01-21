@@ -65,7 +65,7 @@ const Home: NextPage = () => {
                   width={i.sizes.find((e: any) => e.type == "r").width}
                   height={
                     i.sizes.find((e: any) => e.type == "r").height < 510
-                      ? i.sizes.find((e: any) => e.type == "r").width
+                      ? i.sizes.find((e: any) => e.type == "r").height
                       : 510
                   }
                   key={index}
