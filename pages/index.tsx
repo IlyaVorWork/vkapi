@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         res.response.items.map((i: any) => {
           let tempSizes = i.sizes
           console.log(tempSizes)
-          let sortedArray = _.sortBy(tempSizes, ["height"], ["desc"])
+          let sortedArray = _.orderBy(tempSizes, "height", "desc")
           console.log(sortedArray)
           tempPhotos.push({ ...i, sizes: [sortedArray[0]] })
         })
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
         <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
         {user ? user.first_name : null}
-        <br />
+        &nbsp;
         {user ? user.last_name : null}
         <div className={styles.album}>
           {photos
