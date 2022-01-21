@@ -1,10 +1,13 @@
 import type { NextPage } from "next"
 import { useEffect, useState } from "react"
 import styles from "../styles/Home.module.css"
+import Cookies from "js-cookie"
 var _ = require("lodash")
 
 const Home: NextPage = () => {
-  const [user, setUser] = useState<any>()
+  const [user, setUser] = useState<any>(
+    JSON.parse(Cookies.get("user")!) || undefined
+  )
   const [photos, setPhotos] = useState<any>()
 
   useEffect(() => {
@@ -39,6 +42,9 @@ const Home: NextPage = () => {
     VK.Auth.login((status) => {
       console.log(status)
       setUser(status.session.user)
+      Cookies.set("user", JSON.stringify(status.session.user), {
+        expires: status.session.expire,
+      })
     }, 4)
   }
 
