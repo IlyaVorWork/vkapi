@@ -1,12 +1,11 @@
+import clsx from "clsx"
 import type { NextPage } from "next"
-import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>()
   const [photos, setPhotos] = useState<any>()
-  const router = useRouter()
 
   useEffect(() => {
     VK.init({
@@ -29,6 +28,8 @@ const Home: NextPage = () => {
         res.response.items.map((i: any) => {
           i.sizes.map((el: any) => {
             if (el.type == "w") {
+              tempPhotos.push({ ...i, sizes: [el] })
+            } else if (el.type == "z") {
               tempPhotos.push({ ...i, sizes: [el] })
             }
           })
@@ -58,7 +59,10 @@ const Home: NextPage = () => {
             ? photos.map((i: any, index: number) => (
                 <img
                   src={i.sizes[0].url}
-                  className={styles.photo}
+                  className={clsx({
+                    [styles.bigPhoto]: i.sizes[0].type == "w",
+                    [styles.lilPhoto]: i.sizes[0].type == "z",
+                  })}
                   key={index}
                 />
               ))
