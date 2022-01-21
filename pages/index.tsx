@@ -69,11 +69,20 @@ const Home: NextPage = () => {
     }, 4)
   }
 
+  const logOut = () => {
+    VK.Auth.logout((status) => {
+      console.log(status)
+      setUser(null)
+      Cookies.remove("user")
+    })
+  }
+
   return (
     <>
       <div className={styles.container}>
         <button onClick={getPhotos}>Вк апи</button>
         <button onClick={logIn}>Войти через вк</button>
+        <button onClick={logOut}>Выйти</button>
         {user?.avatar ? (
           <img src={user.avatar} className={styles.avatar} />
         ) : null}
