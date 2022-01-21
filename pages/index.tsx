@@ -14,6 +14,21 @@ const Home: NextPage = () => {
     VK.init({
       apiId: 8056179,
     })
+
+    VK.Api.call(
+      "users.get",
+      {
+        user_ids: user.id,
+        fields: "photo_400_orig",
+        access_token:
+          "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
+        v: "5.131",
+      },
+      (response) => {
+        console.log(response)
+        setUser({ ...user, avatar: response.result.photo_400_orig })
+      }
+    )
   }, [])
 
   const getPhotos = () => {
@@ -39,28 +54,15 @@ const Home: NextPage = () => {
   }
 
   const logIn = () => {
+    let tempUser = {}
     VK.Auth.login((status) => {
       console.log(status)
+      tempUser = status.session.user
       setUser(status.session.user)
-    }, 4)
-    VK.Api.call(
-      "users.get",
-      {
-        user_ids: user.id,
-        fields: "photo_400_orig",
-        access_token:
-          "e7811478e7811478e781147863e7fbf90bee781e781147886680247f29066391477cac0",
-        v: "5.131",
-      },
-      (response) => {
-        console.log(response)
-        setUser({ ...user, avatar: response.result.photo_400_orig })
-      }
-    )
-    /*setUser(status.session.user)
       Cookies.set("user", JSON.stringify(status.session.user), {
         expires: 1 / 12,
-    })*/
+      })
+    }, 4)
   }
 
   return (
