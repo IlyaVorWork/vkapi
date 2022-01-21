@@ -63,6 +63,11 @@ const Home: NextPage = () => {
                   src={i.sizes.find((e: any) => e.type == "r").url}
                   className={styles.photo}
                   width={i.sizes.find((e: any) => e.type == "r").width}
+                  height={
+                    i.sizes.find((e: any) => e.type == "r").height < 510
+                      ? i.sizes.find((e: any) => e.type == "r").width
+                      : 510
+                  }
                   key={index}
                 />
               ))
