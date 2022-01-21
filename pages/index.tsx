@@ -1,8 +1,7 @@
-import clsx from "clsx"
 import type { NextPage } from "next"
-import Image from "next/image"
 import { useEffect, useState } from "react"
 import styles from "../styles/Home.module.css"
+var _ = require("lodash")
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>()
@@ -27,15 +26,8 @@ const Home: NextPage = () => {
         console.log(res)
         let tempPhotos: any = []
         res.response.items.map((i: any) => {
-          let z = true
-          i.sizes.map((el: any) => {
-            if (el.type == "w") {
-              tempPhotos.push({ ...i, sizes: [el] })
-              z = false
-            } else if (el.type == "z" && z) {
-              tempPhotos.push({ ...i, sizes: [el] })
-            }
-          })
+          _.sortBy(i.sizes, "height", "desc")
+          tempPhotos.push(i.sizes[0])
         })
         console.log(tempPhotos)
         setPhotos(tempPhotos)
