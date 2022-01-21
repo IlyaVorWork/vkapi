@@ -26,11 +26,8 @@ const Home: NextPage = () => {
         console.log(res)
         let tempPhotos: any = []
         res.response.items.map((i: any) => {
-          let tempSizes = i.sizes
-          console.log(tempSizes)
-          let sortedArray = _.orderBy(tempSizes, "height", "desc")
-          console.log(sortedArray)
-          tempPhotos.push({ ...i, sizes: [sortedArray[0]] })
+          let sortedArray = _.orderBy(i.sizes, "height", "desc")
+          tempPhotos.push({ ...i, sizes: [sortedArray] })
         })
         console.log(tempPhotos)
         setPhotos(tempPhotos)
@@ -57,13 +54,9 @@ const Home: NextPage = () => {
           {photos
             ? photos.map((i: any, index: number) => (
                 <img
-                  src={i.sizes[0].url}
+                  src={i.sizes.find((e: any) => e.type == "r").url}
                   className={styles.photo}
-                  height={
-                    i.sizes[0].height >= 1200
-                      ? i.sizes[0].height / 4
-                      : i.sizes[0].height / 2
-                  }
+                  width={i.sizes.find((e: any) => e.type == "r").width}
                   key={index}
                 />
               ))
