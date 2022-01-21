@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   }, [])
 
   useEffect(() => {
-    if (user) {
+    if (user && !user.avatar) {
       VK.Api.call(
         "users.get",
         {
