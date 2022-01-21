@@ -27,8 +27,8 @@ const Home: NextPage = () => {
         console.log(res)
         let tempPhotos: any = []
         res.response.items.map((i: any) => {
+          let z = true
           i.sizes.map((el: any) => {
-            let z = true
             if (el.type == "w") {
               tempPhotos.push({ ...i, sizes: [el] })
               z = false
