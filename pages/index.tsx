@@ -80,24 +80,24 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <div className={styles.navbar}>
+        {user ? (
+          <>
+            {user?.avatar ? (
+              <img src={user.avatar} className={styles.avatar} />
+            ) : null}
+            &nbsp;
+            {user ? user.first_name : null}
+            &nbsp;
+            {user ? user.last_name : null}
+            <button onClick={getPhotos}>Вк апи</button>
+            <button onClick={logOut}>Выйти</button>
+          </>
+        ) : (
+          <button onClick={logIn}>Войти через вк</button>
+        )}
+      </div>
       <div className={styles.container}>
-        <div className={styles.navbar}>
-          {user ? (
-            <>
-              {user?.avatar ? (
-                <img src={user.avatar} className={styles.avatar} />
-              ) : null}
-              &nbsp;
-              {user ? user.first_name : null}
-              &nbsp;
-              {user ? user.last_name : null}
-              <button onClick={getPhotos}>Вк апи</button>
-              <button onClick={logOut}>Выйти</button>
-            </>
-          ) : (
-            <button onClick={logIn}>Войти через вк</button>
-          )}
-        </div>
         <div className={styles.album}>
           {photos
             ? photos.map((i: any, index: number) => (
