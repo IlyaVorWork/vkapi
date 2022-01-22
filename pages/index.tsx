@@ -81,28 +81,29 @@ const Home: NextPage = () => {
   return (
     <>
       <div className={styles.container}>
-        <button onClick={getPhotos}>Вк апи</button>
-        <button onClick={logIn}>Войти через вк</button>
-        <button onClick={logOut}>Выйти</button>
-        {user?.avatar ? (
-          <img src={user.avatar} className={styles.avatar} />
-        ) : null}
-        &nbsp;
-        {user ? user.first_name : null}
-        &nbsp;
-        {user ? user.last_name : null}
+        <div className={styles.navbar}>
+          {user ? (
+            <>
+              {user?.avatar ? (
+                <img src={user.avatar} className={styles.avatar} />
+              ) : null}
+              &nbsp;
+              {user ? user.first_name : null}
+              &nbsp;
+              {user ? user.last_name : null}
+              <button onClick={getPhotos}>Вк апи</button>
+              <button onClick={logOut}>Выйти</button>
+            </>
+          ) : (
+            <button onClick={logIn}>Войти через вк</button>
+          )}
+        </div>
         <div className={styles.album}>
           {photos
             ? photos.map((i: any, index: number) => (
                 <img
                   src={i.sizes.find((e: any) => e.type == "r").url}
                   className={styles.photo}
-                  width={i.sizes.find((e: any) => e.type == "r").width * 0.75}
-                  height={
-                    i.sizes.find((e: any) => e.type == "r").height < 510
-                      ? i.sizes.find((e: any) => e.type == "r").height * 0.75
-                      : 510 * 0.75
-                  }
                   key={index}
                 />
               ))
