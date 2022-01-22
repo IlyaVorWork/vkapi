@@ -87,10 +87,10 @@ const Home: NextPage = () => {
               {user?.avatar ? (
                 <img src={user.avatar} className={styles.avatar} />
               ) : null}
-              &nbsp;
-              {user ? user.first_name : null}
-              &nbsp;
-              {user ? user.last_name : null}
+              <span>
+                {user ? `${user.first_name} ` : null}
+                {user ? user.last_name : null}
+              </span>
             </div>
             <div className={styles.navButtons}>
               <button onClick={getPhotos}>Вк апи</button>
