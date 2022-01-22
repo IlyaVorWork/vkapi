@@ -83,18 +83,24 @@ const Home: NextPage = () => {
       <div className={styles.navbar}>
         {user ? (
           <>
-            {user?.avatar ? (
-              <img src={user.avatar} className={styles.avatar} />
-            ) : null}
-            &nbsp;
-            {user ? user.first_name : null}
-            &nbsp;
-            {user ? user.last_name : null}
-            <button onClick={getPhotos}>Вк апи</button>
-            <button onClick={logOut}>Выйти</button>
+            <div className={styles.user}>
+              {user?.avatar ? (
+                <img src={user.avatar} className={styles.avatar} />
+              ) : null}
+              &nbsp;
+              {user ? user.first_name : null}
+              &nbsp;
+              {user ? user.last_name : null}
+            </div>
+            <div className={styles.navButtons}>
+              <button onClick={getPhotos}>Вк апи</button>
+              <button onClick={logOut}>Выйти</button>
+            </div>
           </>
         ) : (
-          <button onClick={logIn}>Войти через вк</button>
+          <div className={styles.navButtons}>
+            <button onClick={logIn}>Войти через вк</button>
+          </div>
         )}
       </div>
       <div className={styles.container}>
