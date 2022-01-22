@@ -98,9 +98,7 @@ const Home: NextPage = () => {
             </div>
           </>
         ) : (
-          <div className={styles.navButtons}>
-            <button onClick={logIn}>Войти через вк</button>
-          </div>
+          <button onClick={logIn}>Войти через вк</button>
         )}
       </div>
       <div className={styles.container}>
