@@ -25,7 +25,6 @@
 }
 
 .photo:hover {
-  position: absolute;
   width: 369px;
   height: 369px;
 }
