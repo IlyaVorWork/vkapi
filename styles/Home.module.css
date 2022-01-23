@@ -45,14 +45,20 @@
 }
 
 .navButtons {
-  display: block;
+  display: flex;
 }
 
 .name {
   font-size: 25px;
+  margin-left: 25px;
 }
 
 .button {
   width: 100px;
   height: 50px;
+  margin-right: 25px;
+}
+
+.button:last-child {
+  margin: 0;
 }
