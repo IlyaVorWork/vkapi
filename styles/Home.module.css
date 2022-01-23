@@ -25,10 +25,8 @@
 }
 
 .photo:hover {
-  width: 266px;
-  height: 266px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  transform: scale(1.15);
+  cursor: pointer;
 }
 
 .avatar {
