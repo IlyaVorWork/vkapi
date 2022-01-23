@@ -102,7 +102,9 @@ const Home: NextPage = () => {
             </div>
           </>
         ) : (
-          <button onClick={logIn}>Войти через вк</button>
+          <button onClick={logIn} className={styles.button}>
+            Войти через вк
+          </button>
         )}
       </div>
       <div className={styles.container}>
