@@ -4,10 +4,9 @@
 }
 
 .album {
-  width: 90%;
-  height: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-right: -40px;
 }
 
