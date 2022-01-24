@@ -62,7 +62,7 @@ const Home: NextPage = () => {
   let padding: number = 0
 
   winSize
-    ? (padding = (winSize - Math.floor(winSize / 286) * 286 - 40) / 2)
+    ? (padding = (winSize - (Math.floor(winSize / 286) * 286 - 40)) / 2)
     : null
 
   const getPhotos = () => {
