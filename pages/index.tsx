@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css"
 import Cookies from "js-cookie"
 var _ = require("lodash")
 
+type windowWidth = number | undefined
+
 const Home: NextPage = () => {
   const [user, setUser] = useState<any>(
     Cookies.get("user") ? JSON.parse(Cookies.get("user")!) : undefined
@@ -35,8 +37,27 @@ const Home: NextPage = () => {
     }
   }, [user])
 
-  let margin = window.innerWidth
-  console.log(margin)
+  function useWindowSize() {
+    const [windowSize, setWindowSize] = useState<windowWidth>()
+
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const handleResize = () => {
+          setWindowSize(window.innerWidth)
+        }
+
+        window.addEventListener("resize", handleResize)
+
+        handleResize()
+
+        return () => window.removeEventListener("resize", handleResize)
+      }
+    }, [])
+    return windowSize
+  }
+
+  const winSize = useWindowSize()
+  console.log(winSize)
 
   const getPhotos = () => {
     VK.Api.call(
