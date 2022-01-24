@@ -35,6 +35,9 @@ const Home: NextPage = () => {
     }
   }, [user])
 
+  let margin = window.innerWidth
+  console.log(margin)
+
   const getPhotos = () => {
     VK.Api.call(
       "photos.getAll",
