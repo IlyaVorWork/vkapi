@@ -59,6 +59,10 @@ const Home: NextPage = () => {
   const winSize = useWindowSize()
   console.log(winSize)
 
+  let padding: number = 0
+
+  winSize ? (padding = (winSize - Math.floor(winSize / 264) * 264) / 2) : null
+
   const getPhotos = () => {
     VK.Api.call(
       "photos.getAll",
@@ -132,7 +136,7 @@ const Home: NextPage = () => {
         )}
       </div>
       <div className={styles.container}>
-        <div className={styles.album}>
+        <div className={styles.album} style={{ paddingLeft: padding }}>
           {photos
             ? photos.map((i: any, index: number) => (
                 <img
