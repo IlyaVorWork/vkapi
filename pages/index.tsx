@@ -61,7 +61,9 @@ const Home: NextPage = () => {
 
   let padding: number = 0
 
-  winSize ? (padding = (winSize - Math.floor(winSize / 284) * 284) / 2) : null
+  winSize
+    ? (padding = (winSize - Math.floor(winSize / 284) * 284 - 40) / 2)
+    : null
 
   const getPhotos = () => {
     VK.Api.call(
